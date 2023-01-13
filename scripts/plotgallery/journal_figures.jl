@@ -3,35 +3,33 @@ using Julianim
 publication_figure()
 publication_figure_dark()
 publication_figure_fullscreen()
-
-MARKER_LIST = [:circle, :rect, :utriangle, :star5, :diamond, :dtriangle, :cross, :pentagon]
+colorbar_example()
+threed_fig()
 
 function publication_figure()
     x = (-π):0.1:π
     y₁ = sin.(x)
     y₂ = cos.(x)
-    set_theme!(publication_theme())
+
+    set_publication_theme!()
 
     fig = Figure()
-    # ax = Axis(fig[1, 1])
-    # ax = Axis(fig[1, 1],
-    #           xticks = ([-3, -1.5, 0, 1.5, 3], latexstring.([-3, -1.5, 0, 1.5, 3])),
-    #           yticks = ([-1, -0.5, 0, 0.5, 1, 1.5, 2.0],
-    #                     latexstring.([-1, -0.5, 0, 0.5, 1, 1.5, 2.0])))
-
     ax = Axis(fig[1, 1],
               xticks = ([-3, -1.5, 0, 1.5, 3]),
               yticks = ([-1, -0.5, 0, 0.5, 1, 1.5, 2.0]))
 
-    lines!(ax, x, y₁; label = L"\text{TW}2")
-    lines!(ax, x, y₂; label = L"TW3")
-    [lines!(ax, x, y₂ .+ 0.1 * i) for i in 1:8]
-    scatter!(ax, x, y₂; label = L"TW4")
-    scatter!(ax, x, y₂ .+ 0.1; label = L"TW5")
+    [lines!(ax, x, y₂ .+ 0.1 * i) for i in 1:7]
+    [scatter!(ax, x[1:4:end], y₂[1:4:end] .+ 0.1 * i) for i in 1:7]
+    # [scatter!(ax, x[1:4:end], y₂[1:4:end] .+ 0.1 * i; color = :white, cycle = [:marker],
+    #           strokecolor = :black) for i in 1:7]
 
-    axislegend(ax; merge = true, position = :lt)
+    scatterlines!(ax, x, y₁; label = L"\text{TW}2")
+    lines!(ax, x, y₂; label = L"\text{TW}3")
+
+    Legend(fig[1, 1], ax)
     text!(ax, L"E = mc^2", space = :relative, position = Point2f(0.5, 0.5), fontsize = 40)
     # DataInspector(fig)
+    # save("test.png", fig)
     fig
 end
 
@@ -39,19 +37,54 @@ function publication_figure_dark()
     x = (-π):0.1:π
     y₁ = sin.(x)
     y₂ = cos.(x)
-    set_theme!(publication_dark_theme())
+
+    set_publication_dark_theme!()
 
     fig = Figure()
     ax = Axis(fig[1, 1],
-              xticks = ([-3, -1.5, 0, 1.5, 3], latexstring.([-3, -1.5, 0, 1.5, 3])),
-              yticks = ([-1, -0.5, 0, 0.5, 1, 1.5, 2.0],
-                        latexstring.([-1, -0.5, 0, 0.5, 1, 1.5, 2.0])))
-    lines!(ax, x, y₁; label = "TW2")
-    lines!(ax, x, y₂; label = "TW3")
-    [lines!(ax, x, y₂ .+ 0.1 * i) for i in 1:8]
+              xticks = ([-3, -1.5, 0, 1.5, 3]),
+              yticks = ([-1, -0.5, 0, 0.5, 1, 1.5, 2.0]))
 
-    axislegend(ax; merge = true, position = :lt)
+    [lines!(ax, x, y₂ .+ 0.1 * i) for i in 1:7]
+    [scatter!(ax, x[1:4:end], y₂[1:4:end] .+ 0.1 * i) for i in 1:7]
+    # [scatter!(ax, x[1:4:end], y₂[1:4:end] .+ 0.1 * i; color = :white, cycle = [:marker],
+    #           strokecolor = :black) for i in 1:7]
+
+    scatterlines!(ax, x, y₁; label = L"\text{TW}2")
+    lines!(ax, x, y₂; label = L"\text{TW}3")
+
+    Legend(fig[1, 1], ax)
     text!(ax, L"E = mc^2", space = :relative, position = Point2f(0.5, 0.5), fontsize = 40)
+    # DataInspector(fig)
+    # save("test.png", fig)
+    fig
+end
+
+function threed_fig()
+    xs = LinRange(0, 10, 100)
+    ys = LinRange(0, 15, 100)
+    zs = [cos(x) * sin(y) for x in xs, y in ys]
+
+    set_publication_theme!()
+
+    fig = Figure()
+    ax = Axis3(fig[1, 1])
+
+    surface!(ax, xs, ys, zs)
+    # save("test.png", fig)
+    fig
+end
+
+function colorbar_example()
+    x = LinRange(0, 2π, 100)
+    set_publication_theme!()
+
+    fig = Figure()
+    ax = Axis(fig[1, 1])
+
+    obj = lines!(ax, x, sin.(x); color = x, colormap = :viridis)
+    Colorbar(fig[1, 2], obj, label = L"\sin{x}")
+    # Colorbar(fig[1, 2], obj)
     fig
 end
 
@@ -59,21 +92,26 @@ function publication_figure_fullscreen()
     x = (-π):0.1:π
     y₁ = sin.(x)
     y₂ = cos.(x)
-    set_theme!(publication_dark_theme())
-    update_theme!(fullscreen())
+    set_publication_theme!(fullscreen = true)
 
     fig = Figure()
     ax = Axis(fig[1, 1],
-              xticks = ([-3, -1.5, 0, 1.5, 3], latexstring.([-3, -1.5, 0, 1.5, 3])),
-              yticks = ([-1, -0.5, 0, 0.5, 1, 1.5, 2.0],
-                        latexstring.([-1, -0.5, 0, 0.5, 1, 1.5, 2.0])))
-    lines!(ax, x, y₁; label = "TW2")
-    lines!(ax, x, y₂; label = "TW3")
-    [lines!(ax, x, y₂ .+ 0.1 * i) for i in 1:8]
+              xticks = ([-3, -1.5, 0, 1.5, 3]),
+              yticks = ([-1, -0.5, 0, 0.5, 1, 1.5, 2.0]))
 
-    axislegend(ax; merge = true, position = :lt)
+    [lines!(ax, x, y₂ .+ 0.1 * i) for i in 1:7]
+    [scatter!(ax, x[1:4:end], y₂[1:4:end] .+ 0.1 * i) for i in 1:7]
+    # [scatter!(ax, x[1:4:end], y₂[1:4:end] .+ 0.1 * i; color = :white, cycle = [:marker],
+    #           strokecolor = :black) for i in 1:7]
+
+    scatterlines!(ax, x, y₁; label = L"\text{TW}2")
+    lines!(ax, x, y₂; label = L"\text{TW}3")
+
+    Legend(fig[1, 1], ax)
     text!(ax, L"E = mc^2", space = :relative, position = Point2f(0.5, 0.5), fontsize = 40)
-    hidedecorations!(ax)
+    # DataInspector(fig)
+    # save("test.png", fig)
     hidespines!(ax)
+    hidedecorations!(ax)
     fig
 end

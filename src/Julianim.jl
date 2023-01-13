@@ -6,6 +6,6 @@ using Reexport
 
 include("themes/plotting_themes.jl")
 
-export publication_theme, publication_dark_theme, fullscreen
+export set_publication_theme!, set_publication_dark_theme!
 
 end

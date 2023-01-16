@@ -4,7 +4,7 @@ using Reexport
 
 @reexport using GLMakie, LaTeXStrings
 
-include("contants.jl")
+include("constants.jl")
 include("themes/plotting_themes.jl")
 
 export COLORS, MARKERS

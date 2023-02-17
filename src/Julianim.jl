@@ -7,7 +7,7 @@ using Reexport
 include("constants.jl")
 include("themes/plotting_themes.jl")
 
-export COLORS, MARKERS
+export CircularContainer, COLORS, MARKERS, GREYS
 
 export set_publication_theme!, set_publication_dark_theme!
 

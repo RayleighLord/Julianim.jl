@@ -1,4 +1,35 @@
-const COLORS = [
+"""
+    CircularContainer(v::Vector)
+
+Creates a circular container that wraps around the vector `v`. This is useful for
+iterating over a vector in a circular fashion.
+
+# Examples
+```julia
+julia> c = CircularContainer([1, 2, 3])
+CircularContainer([1, 2, 3])
+
+julia> for i in 1:4
+           println(c[i])
+       end
+1
+2
+3
+1
+```
+"""
+struct CircularContainer
+    v::Vector
+end
+
+Base.length(c::CircularContainer) = length(c.v)
+Base.iterate(c::CircularContainer, state = 1) = Base.iterate(c.v, state)
+
+Base.getindex(c::CircularContainer, i::Int) = c.v[mod1(i, length(c))]
+Base.firstindex(c::CircularContainer) = 1
+Base.lastindex(c::CircularContainer) = length(c)
+
+const COLORSCHEME = [
     "#4263eb",
     "#f03e3e",
     "#f76707",
@@ -10,7 +41,7 @@ const COLORS = [
     "#cf6db0",
 ]
 
-const MARKERS = [
+const MARKERSLIST = [
     :circle,
     :utriangle,
     :rect,
@@ -20,3 +51,23 @@ const MARKERS = [
     :hexagon,
     :star5,
 ]
+
+const GREYPALETTE = [
+    "#EEE",
+    "#CCC",
+    "#999",
+    "#666",
+    "#333",
+    "#000",
+]
+
+COLORS = CircularContainer(COLORSCHEME)
+GREYS = CircularContainer(GREYPALETTE)
+MARKERS = CircularContainer(MARKERSLIST)
+
+const _FONTSIZE = 36
+const _LABELSIZE = 40
+const _MARKERSIZE = 20
+const _LINEWIDTH = 4
+const _DEFAULT_RESOLUTION = (1152, 864)
+const _FONT = "CMU"

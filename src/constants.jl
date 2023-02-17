@@ -53,17 +53,16 @@ const MARKERSLIST = [
 ]
 
 const GREYPALETTE = [
-    "#EEE",
-    "#CCC",
+    "#BBB",
     "#999",
     "#666",
     "#333",
     "#000",
 ]
 
-COLORS = CircularContainer(COLORSCHEME)
-GREYS = CircularContainer(GREYPALETTE)
-MARKERS = CircularContainer(MARKERSLIST)
+const COLORS = CircularContainer(COLORSCHEME)
+const GREYS = CircularContainer(GREYPALETTE)
+const MARKERS = CircularContainer(MARKERSLIST)
 
 const _FONTSIZE = 36
 const _LABELSIZE = 40

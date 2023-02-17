@@ -33,7 +33,7 @@ function twavefig()
     lines!(ax, [0, 0], [-1.25, 1.25]; color = (:white, 0.5))
     lines!(ax, [2π + 0.015, 2π + 0.015], [-1.25, 1.25]; color = (:white, 0.5))
     scatter!(ax, [0, π / 2, π, 3π / 2, 2π], [0, 0, 0, 0, 0]; color = :white,
-             markersize = 15)
+             strokecolor = :white, markersize = 15)
 
     text!("@RayleighLord", space = :relative, position = Point2f(0.8, 0.025),
           color = (:white, 0.6), fontsize = 30)

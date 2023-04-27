@@ -54,7 +54,7 @@ Defines a paper quality theme for figures. The `fullscreen` keyword argument is 
 full screen figure, set `fullscreen = true`.
 """
 function publication_theme(; fullscreen = false)
-    f_padding = fullscreen ? (0, 0, 0, 0) : (0, 40, 0, 20)
+    f_padding = fullscreen ? (0, 0, 0, 0) : (10, 40, 10, 20)
 
     Theme(backgroundcolor = :white,
           resolution = _DEFAULT_RESOLUTION,

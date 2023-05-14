@@ -30,7 +30,7 @@ function publication_figure()
     text!(ax, L"E = mc^2", space = :relative, position = Point2f(0.5, 0.5), fontsize = 40)
     # DataInspector(fig)
     # save("test.png", fig)
-    fig
+    display(GLMakie.Screen(), fig)
 end
 
 function publication_figure_dark()

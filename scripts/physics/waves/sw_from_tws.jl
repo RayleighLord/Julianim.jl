@@ -29,20 +29,24 @@ function twavefig()
     lines!(ax, [-0.015, 2π + 0.015], [0, 0]; color = (:white, 0.6), linewidth = 1)
     lines!(ax, x, y₊; color = (COLORS[1], 0.7))
     lines!(ax, x, y₋; color = (COLORS[2], 0.7))
-    lines!(ax, x, y; color = (COLORS[4], 1), linewidth = 7.5)
+    lines!(ax, x, y; color = (COLORS[4], 1), linewidth = 5)
     lines!(ax, [0, 0], [-1.25, 1.25]; color = (:white, 0.5))
     lines!(ax, [2π + 0.015, 2π + 0.015], [-1.25, 1.25]; color = (:white, 0.5))
-    scatter!(ax, [0, π / 2, π, 3π / 2, 2π], [0, 0, 0, 0, 0]; color = :white,
-             strokecolor = :white, markersize = 15)
+    scatter!(ax,
+        [0, π / 2, π, 3π / 2, 2π],
+        [0, 0, 0, 0, 0];
+        color = :white,
+        strokewidth = 0,
+        markersize = 20)
 
-    text!("@RayleighLord", space = :relative, position = Point2f(0.8, 0.025),
-          color = (:white, 0.6), fontsize = 30)
-    text!(L"\sin(x - ct)", position = (0.55, 2.65), color = (COLORS[1], 1), fontsize = 50)
-    text!(L"+", position = (2.0, 2.67), color = :white, fontsize = 50)
-    text!(L"\sin(x + ct)", position = (2.35, 2.65), color = (COLORS[2], 1), fontsize = 50)
-    text!(L"=", position = (3.8, 2.67), color = :white, fontsize = 50)
+    text!("@RayleighLord", space = :relative, position = Point2f(0.75, 0.025),
+        color = (:white, 0.6), fontsize = 30)
+    text!(L"\sin(x - ct)", position = (0.55, 2.65), color = (COLORS[1], 1), fontsize = 38)
+    text!(L"+", position = (2.0, 2.67), color = :white, fontsize = 38)
+    text!(L"\sin(x + ct)", position = (2.35, 2.65), color = (COLORS[2], 1), fontsize = 38)
+    text!(L"=", position = (3.8, 2.67), color = :white, fontsize = 38)
     text!(L"2 \sin (x)  \cos (ct)", position = (4.1, 2.65), color = (COLORS[4], 1),
-          fontsize = 50)
+        fontsize = 38)
 
     fig
 end

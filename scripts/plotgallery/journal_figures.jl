@@ -15,13 +15,13 @@ function publication_figure()
 
     fig = Figure()
     ax = Axis(fig[1, 1],
-              xticks = ([-3, -1.5, 0, 1.5, 3]),
-              yticks = ([-1, -0.5, 0, 0.5, 1, 1.5, 2.0]))
+        xticks = ([-3, -1.5, 0, 1.5, 3]),
+        yticks = ([-1, -0.5, 0, 0.5, 1, 1.5, 2.0]))
 
     [lines!(ax, x, y₂ .+ 0.1 * i) for i in 1:7]
     [scatter!(ax, x[1:4:end], y₂[1:4:end] .+ 0.1 * i) for i in 1:7]
     # [scatter!(ax, x[1:4:end], y₂[1:4:end] .+ 0.1 * i; color = :white, cycle = [:marker],
-    #           strokecolor = :black) for i in 1:7]
+    #     strokecolor = :black) for i in 1:7]
 
     scatterlines!(ax, x, y₁; label = L"\text{TW}2")
     lines!(ax, x, y₂; label = L"\text{TW}3")
@@ -29,7 +29,7 @@ function publication_figure()
     Legend(fig[1, 1], ax)
     text!(ax, L"E = mc^2", space = :relative, position = Point2f(0.5, 0.5), fontsize = 40)
     # DataInspector(fig)
-    # save("test.png", fig)
+    # save("test.svg", fig, px_per_unit = 2)
     display(GLMakie.Screen(), fig)
 end
 
@@ -42,8 +42,8 @@ function publication_figure_dark()
 
     fig = Figure()
     ax = Axis(fig[1, 1],
-              xticks = ([-3, -1.5, 0, 1.5, 3]),
-              yticks = ([-1, -0.5, 0, 0.5, 1, 1.5, 2.0]))
+        xticks = ([-3, -1.5, 0, 1.5, 3]),
+        yticks = ([-1, -0.5, 0, 0.5, 1, 1.5, 2.0]))
 
     [lines!(ax, x, y₂ .+ 0.1 * i) for i in 1:7]
     [scatter!(ax, x[1:4:end], y₂[1:4:end] .+ 0.1 * i) for i in 1:7]
@@ -96,8 +96,8 @@ function publication_figure_fullscreen()
 
     fig = Figure()
     ax = Axis(fig[1, 1],
-              xticks = ([-3, -1.5, 0, 1.5, 3]),
-              yticks = ([-1, -0.5, 0, 0.5, 1, 1.5, 2.0]))
+        xticks = ([-3, -1.5, 0, 1.5, 3]),
+        yticks = ([-1, -0.5, 0, 0.5, 1, 1.5, 2.0]))
 
     [lines!(ax, x, y₂ .+ 0.1 * i) for i in 1:7]
     [scatter!(ax, x[1:4:end], y₂[1:4:end] .+ 0.1 * i) for i in 1:7]

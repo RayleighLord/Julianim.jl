@@ -64,9 +64,9 @@ const COLORS = CircularContainer(COLORSCHEME)
 const GREYS = CircularContainer(GREYPALETTE)
 const MARKERS = CircularContainer(MARKERSLIST)
 
-const _FONTSIZE = 40
-const _LABELSIZE = 42
-const _MARKERSIZE = 20
-const _LINEWIDTH = 4
-const _DEFAULT_RESOLUTION = (1152, 864)
+const _FONTSIZE = 30
+const _LABELSIZE = 32
+const _MARKERSIZE = 14
+const _LINEWIDTH = 3
+const _DEFAULT_SIZE = (900, 675)
 const _FONT = "CMU"

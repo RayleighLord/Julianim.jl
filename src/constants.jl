@@ -66,7 +66,7 @@ const MARKERS = CircularContainer(MARKERSLIST)
 
 const _FONTSIZE = 30
 const _LABELSIZE = 32
-const _MARKERSIZE = 14
-const _LINEWIDTH = 3
+const _MARKERSIZE = 18
+const _LINEWIDTH = 4
 const _DEFAULT_SIZE = (900, 675)
 const _FONT = "CMU"

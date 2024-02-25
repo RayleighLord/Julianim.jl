@@ -68,7 +68,7 @@ function threed_fig()
     set_publication_theme!()
 
     fig = Figure()
-    ax = Axis3(fig[1, 1])
+    ax = Axis3(fig[1, 1], title = "Hey Brother")
 
     surface!(ax, xs, ys, zs)
     # save("test.png", fig)

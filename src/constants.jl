@@ -38,7 +38,7 @@ const COLORSCHEME = [
     "#fcc419",
     "#c2255c",
     "#1098ad",
-    "#cf6db0",
+    "#cf6db0"
 ]
 
 const MARKERSLIST = [
@@ -49,7 +49,7 @@ const MARKERSLIST = [
     :diamond,
     :xcross,
     :hexagon,
-    :star5,
+    :star5
 ]
 
 const GREYPALETTE = [
@@ -57,16 +57,16 @@ const GREYPALETTE = [
     "#999",
     "#666",
     "#333",
-    "#000",
+    "#000"
 ]
 
 const COLORS = CircularContainer(COLORSCHEME)
 const GREYS = CircularContainer(GREYPALETTE)
 const MARKERS = CircularContainer(MARKERSLIST)
 
-const _FONTSIZE = 30
-const _LABELSIZE = 32
-const _MARKERSIZE = 18
+const _FONTSIZE = 36
+const _LABELSIZE = 36
+const _MARKERSIZE = 24
 const _LINEWIDTH = 4
 const _DEFAULT_SIZE = (900, 675)
 const _FONT = "CMU"

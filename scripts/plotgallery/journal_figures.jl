@@ -13,6 +13,7 @@ function publication_figure()
 
     set_publication_theme!()
 
+    # fig = Figure(size = (900, 375), fontsize = 36)
     fig = Figure()
     ax = Axis(fig[1, 1],
         xticks = ([-3, -1.5, 0, 1.5, 3]),
@@ -30,6 +31,7 @@ function publication_figure()
     text!(ax, L"E = mc^2", space = :relative, position = Point2f(0.5, 0.5), fontsize = 40)
     # DataInspector(fig)
     # save("test.svg", fig, px_per_unit = 2)
+    # save("test.png", fig, px_per_unit = 2)
     display(GLMakie.Screen(), fig)
 end
 

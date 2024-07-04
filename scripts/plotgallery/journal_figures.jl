@@ -17,9 +17,9 @@ function publication_figure()
     fig = Figure()
     ax = Axis(fig[1, 1],
         xticks = ([-3, -1.5, 0, 1.5, 3]),
-        yticks = ([-1, -0.5, 0, 0.5, 1, 1.5, 2.0]))
+        yticks = ([-1, -0.5, 0, 0.5, 1, 1.5, 2.0, 2.5, 3.0]))
 
-    [lines!(ax, x, y₂ .+ 0.2 * i) for i in 1:7]
+    [lines!(ax, x, y₂ .+ 0.2 * i) for i in 1:10]
     [scatter!(ax, x[1:5:end], y₂[1:5:end] .+ 0.2 * i) for i in 1:7]
     # [scatter!(ax, x[1:4:end], y₂[1:4:end] .+ 0.1 * i; color = :white, cycle = [:marker],
     #     strokecolor = :black) for i in 1:7]

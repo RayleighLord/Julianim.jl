@@ -35,11 +35,11 @@ const COLORSCHEME = [
     "#22b371",
     "#f76707",
     "#1098ad",
-    "#5f3dc4",
     "#c2255c",
     "#6adad3",
-    "#cf6db0",
-    "#fcc419"
+    "#5f3dc4",
+    "#fcc419",
+    "#cf6db0"
 ]
 
 const MARKERSLIST = [

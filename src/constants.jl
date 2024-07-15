@@ -32,14 +32,14 @@ Base.lastindex(c::CircularContainer) = length(c)
 const COLORSCHEME = [
     "#4263eb",
     "#f03e3e",
-    "#22b371",
+    "#0a9a84",
+    "#191e44",
     "#f76707",
-    "#1098ad",
-    "#c2255c",
-    "#6adad3",
-    "#5f3dc4",
-    "#fcc419",
-    "#cf6db0"
+    "#7143e0",
+    "#f2cc35",
+    "#791457",
+    "#cf6db0",
+    "#6adad3"
 ]
 
 const MARKERSLIST = [

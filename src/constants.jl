@@ -38,9 +38,20 @@ const COLORSCHEME = [
     "#7143e0",
     "#f2cc35",
     "#791457",
-    "#cf6db0",
-    "#6adad3"
+    "#6adad3",
+    "#cf6db0"
 ]
+
+const BLUE = "#4263eb"
+const RED = "#f03e3e"
+const GREEN = "#0a9a84"
+const DARKBLUE = "#191e44"
+const ORANGE = "#f76707"
+const PURPLE = "#7143e0"
+const YELLOW = "#f2cc35"
+const DARKPINK = "#791457"
+const LIGHTBLUE = "#6adad3"
+const PINK = "#cf6db0"
 
 const MARKERSLIST = [
     :circle,

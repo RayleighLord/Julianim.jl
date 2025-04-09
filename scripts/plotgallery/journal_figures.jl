@@ -15,9 +15,10 @@ function publication_figure()
 
     # fig = Figure(size = (900, 375), fontsize = 36)
     fig = Figure()
-    ax = Axis(fig[1, 1],
-        xticks = -3:1.5:3,
-        yticks = -1.0:3.0)
+    # ax = Axis(fig[1, 1],
+    #     xticks = -3:1.5:3,
+    #     yticks = -1.0:3.0)
+    ax = Axis(fig[1, 1])
 
     [lines!(ax, x, y₂ .+ 0.2 * i) for i in 1:10]
     [scatter!(ax, x[1:5:end], y₂[1:5:end] .+ 0.2 * i) for i in 1:7]
@@ -29,6 +30,8 @@ function publication_figure()
 
     Legend(fig[1, 1], ax)
     text!(ax, L"E = mc^2", space = :relative, position = Point2f(0.5, 0.5), fontsize = 40)
+    xlims!(ax, -3, 3)
+    ylims!(ax, -1.0, 3.0)
     # DataInspector(fig)
     # save("test.svg", fig, px_per_unit = 2)
     # save("test.png", fig, px_per_unit = 2)

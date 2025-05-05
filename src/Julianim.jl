@@ -2,7 +2,7 @@ module Julianim
 
 using Reexport
 
-@reexport using GLMakie, LaTeXStrings
+@reexport using Makie, GLMakie, LaTeXStrings
 
 include("constants.jl")
 include("themes/plotting_themes.jl")
